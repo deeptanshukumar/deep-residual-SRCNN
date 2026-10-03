@@ -177,9 +177,6 @@ print(f"Test MSE: {mse:.6f}, Test PSNR: {psnr:.2f} dB")
 
 4. **More training data helps** — Increasing from 60 to 800 training images yields +0.59 dB improvement
 
-## License
-
-This project is licensed under the MIT License.
 
 ## Acknowledgments
 

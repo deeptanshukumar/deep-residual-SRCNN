@@ -1,2 +1,4 @@
 /material
 
+__pycache__/
+*.pyc

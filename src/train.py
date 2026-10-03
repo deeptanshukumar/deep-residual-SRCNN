@@ -1,7 +1,7 @@
 import torch
 import torch.nn as nn
 
-from metrics import calculate_psnr_from_mse
+from src.metrics import calculate_psnr_from_mse
 
 
 def train_model(

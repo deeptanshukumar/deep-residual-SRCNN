@@ -2,9 +2,14 @@
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A PyTorch implementation of single-image super-resolution (SISR) using progressively deeper and residual SRCNN architectures. This project explores the impact of network depth, training stabilization, and residual learning on super-resolution quality.
+
+This project was done as a part of our **Course:** UE24CS352A — Machine Learning at PES University
+
+### Team Members
+- **Deeptanshu Kumar** — PES1UG24AM357
+- **Krish Mathur** — PES1UG24AM914
 
 ## Project Overview
 
@@ -52,7 +57,12 @@ Output = Input + Residual
 
 ```
 deep-residual-srcnn/
-├── code/
+├── README.md
+├── requirements.txt
+├── .gitignore
+│
+├── src/
+│   ├── __init__.py
 │   ├── config.py          # Configuration and hyperparameters
 │   ├── data.py            # Data loading and preprocessing
 │   ├── models.py          # Model architectures (SRCNN, DeepSRCNN, DeepResidualSRCNN)
@@ -60,32 +70,47 @@ deep-residual-srcnn/
 │   ├── train.py           # Training loop with checkpointing
 │   ├── evaluate.py        # Model evaluation
 │   ├── baselines.py       # Interpolation baselines
-│   ├── visualize.py       # Visualization utilities
-│   └── main.py            # Main entry point
-├── outputs/               # Generated results and plots
-├── data/                  # Downloaded datasets
-├── material/              # Reference papers and materials
-└── README.md
+│   └── visualize.py       # Visualization utilities
+│
+├── scripts/
+│   └── run_experiment.py  # Main entry point
+│
+├── ML_MiniProject_SRCNN.ipynb
+├── Deep_Residual_SRCNN_Academic_Paper.pdf
+├── Deep_Residual_SRCNN_OnePager.pdf
+│
+├── material/              # Reference papers (gitignored)
+│
+└── checkpoints/           # Saved model weights
+    └── .gitkeep
 ```
 
-## Installation
+## Setup
+
+### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/deep-residual-srcnn.git
-cd deep-residual-srcnn
+git clone https://github.com/deeptanshukumar/deep-residual-SRCNN.git
+cd deep-residual-SRCNN
+```
+
+### 2. Create Virtual Environment
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+### 3. Install Dependencies
+
+```bash
 pip install -r requirements.txt
 ```
 
-### Requirements
+### 4. Verify Installation
 
-```
-torch>=2.0
-torchvision
-numpy
-pandas
-matplotlib
-pillow
-pyarrow
+```bash
+python -c "import torch; print(f'PyTorch: {torch.__version__}')"
 ```
 
 ## Usage
@@ -93,8 +118,7 @@ pyarrow
 ### Run All Experiments
 
 ```bash
-cd code
-python main.py
+python scripts/run_experiment.py
 ```
 
 This will:
@@ -107,10 +131,13 @@ This will:
 ### Run Individual Components
 
 ```python
-from data import load_100_image_dataset, create_dataloaders
-from models import DeepResidualSRCNN
-from train import train_model
-from evaluate import evaluate_model
+from src.data import load_100_image_dataset, create_dataloaders
+from src.models import DeepResidualSRCNN
+from src.train import train_model
+from src.evaluate import evaluate_model
+from src.config import get_device
+
+device = get_device()
 
 # Load data
 df, all_hr, all_lr_small, all_lr, train_idx, val_idx, test_idx = load_100_image_dataset()
@@ -138,6 +165,7 @@ print(f"Test MSE: {mse:.6f}, Test PSNR: {psnr:.2f} dB")
 | Gradient Clipping | 1.0 |
 | Image Size | 224×224 |
 | LR Size | 112×112 |
+| Seed | 42 |
 
 ## Key Findings
 

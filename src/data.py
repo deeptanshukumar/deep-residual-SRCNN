@@ -7,7 +7,7 @@ from PIL import Image
 from torch.utils.data import DataLoader, TensorDataset
 from torchvision.transforms.functional import to_tensor
 
-from config import (
+from src.config import (
     BATCH_SIZE,
     CROP_SIZE,
     DATA_PATH,

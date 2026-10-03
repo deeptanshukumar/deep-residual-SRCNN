@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import torch
 from torchvision.transforms.functional import to_pil_image, to_tensor
 
-from config import IMAGE_SIZE
-from data import get_image, preprocess_image
+from src.config import IMAGE_SIZE
+from src.data import get_image, preprocess_image
 
 
 def get_srcnn_visual(idx, df, model, device):

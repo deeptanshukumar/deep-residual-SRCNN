@@ -2,8 +2,8 @@ import torch
 from PIL import Image
 from torchvision.transforms.functional import to_pil_image, to_tensor
 
-from config import IMAGE_SIZE
-from metrics import calculate_psnr_from_mse
+from src.config import IMAGE_SIZE
+from src.metrics import calculate_psnr_from_mse
 
 
 def evaluate_interpolation(test_indices, all_lr_small, all_hr, method):

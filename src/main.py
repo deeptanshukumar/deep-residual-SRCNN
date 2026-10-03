@@ -4,18 +4,18 @@ import sys
 import pandas as pd
 import torch
 
-from config import (
+from src.config import (
     set_seed, get_device, OUTPUT_DIR, CHECKPOINT_DIR,
     NUM_EPOCHS, LEARNING_RATE, DEEP_LR, DEEP_GRAD_CLIP,
 )
-from data import (
+from src.data import (
     load_100_image_dataset, create_dataloaders, get_image, preprocess_image,
 )
-from models import SRCNN, DeepSRCNN, DeepResidualSRCNN, count_parameters
-from train import train_model
-from evaluate import evaluate_model
-from baselines import run_all_baselines
-from visualize import (
+from src.models import SRCNN, DeepSRCNN, DeepResidualSRCNN, count_parameters
+from src.train import train_model
+from src.evaluate import evaluate_model
+from src.baselines import run_all_baselines
+from src.visualize import (
     get_srcnn_visual, plot_srcnn_comparison,
     plot_training_loss, plot_validation_psnr, plot_model_comparison,
 )

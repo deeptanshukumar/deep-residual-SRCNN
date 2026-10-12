@@ -1,4 +1,4 @@
-# Deep Residual SRCNN — Image Super-Resolution
+# Deep Residual SRCNN - Image Super-Resolution
 
 [![Python 3.10+](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-red.svg)](https://pytorch.org/)
@@ -8,15 +8,15 @@ A PyTorch implementation of single-image super-resolution (SISR) using progressi
 This project was done as a part of our **Course:** UE24CS352A — Machine Learning at PES University
 
 ### Team Members
-- **Deeptanshu Kumar** — PES1UG24AM357
-- **Krish Mathur** — PES1UG24AM914
+- **Deeptanshu Kumar** - PES1UG24AM357
+- **Krish Mathur** - PES1UG24AM914
 
 ## Project Overview
 
 This study investigates **single-image super-resolution** using convolutional neural networks. Starting from conventional interpolation methods and the original SRCNN as baselines, we progressively explore:
 
 - **Deep SRCNN** — Extended 5-layer architecture
-- **Stabilized Deep SRCNN** — Lower learning rate + gradient clipping
+- **Stabilized Deep SRCNN** — Lower learning rate + gradient clipping because the plain 5-layer model trained worse than the baseline
 - **Deep Residual SRCNN** — Global residual connection for learning reconstruction residuals
 - **Data-Scale Study** — 60 vs. 800 training images
 
@@ -31,6 +31,8 @@ This study investigates **single-image super-resolution** using convolutional ne
 | Deep SRCNN (stabilized) | 60 | 0.002894 | 25.38 dB |
 | Deep Residual SRCNN | 60 | 0.001919 | 27.17 dB |
 | Deep Residual SRCNN | 800 | 0.001674 | 27.76 dB |
+
+Residual learning gives +1.71 dB over SRCNN at the same 60-image budget; 800 images adds another +0.59 dB
 
 ## Architecture
 
